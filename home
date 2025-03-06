@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Revive | Construção e Mediação Imobiliária no Porto</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {font-family: 'Montserrat', sans-serif;}
+        .carousel-item img {height: 600px; object-fit: cover;}
+        .btn-custom {background-color: #004aad; color: white;}
+        .section-title {margin-top: 60px; margin-bottom: 30px; text-align: center;}
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="#">House Revive</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#sobre">Sobre Nós</a></li>
+        <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
+        <li class="nav-item"><a class="nav-link" href="#imoveis">Imóveis</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contactos">Contactos</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Carousel -->
+<div id="carouselRevive" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://source.unsplash.com/random/1400x600?house-renovation" class="d-block w-100">
+      <div class="carousel-caption"><h3>Reabilitação e Remodelação</h3></div>
+    </div>
+    <div class="carousel-item">
+      <img src="https://source.unsplash.com/random/1400x600?new-house" class="d-block w-100">
+      <div class="carousel-caption"><h3>Construção Nova e Sustentável</h3></div>
+    </div>
+    <div class="carousel-item">
+      <img src="https://source.unsplash.com/random/1400x600?porto-portugal" class="d-block w-100">
+      <div class="carousel-caption"><h3>Imóveis no Porto</h3></div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselRevive" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselRevive" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+
+<!-- Sobre Nós -->
+<section id="sobre" class="container">
+  <h2 class="section-title">Sobre a House Revive</h2>
+  <p class="text-center">Especialistas em reabilitação, construção e mediação imobiliária no Porto. Oferecemos apoio completo no financiamento habitacional.</p>
+</section>
+
+<!-- Serviços -->
+<section id="servicos" class="container">
+  <h2 class="section-title">Os Nossos Serviços</h2>
+  <div class="row text-center">
+    <div class="col-md-3"><h5>Reabilitação</h5></div>
+    <div class="col-md-3"><h5>Construção</h5></div>
+    <div class="col-md-3"><h5>Mediação</h5></div>
+    <div class="col-md-3"><h5>Crédito Habitação</h5></div>
+  </div>
+</section>
+
+<!-- Imóveis Disponíveis -->
+<section id="imoveis" class="container">
+  <h2 class="section-title">Imóveis Disponíveis</h2>
+  <div class="row">
+    <div class="col-md-4">
+      <img src="https://source.unsplash.com/random/400x300?house" class="img-fluid">
+      <h5 class="mt-2">Moradia T3 no Porto</h5>
+      <button class="btn btn-custom">Agendar Visita</button>
+    </div>
+    <div class="col-md-4">
+      <img src="https://source.unsplash.com/random/400x300?apartment" class="img-fluid">
+      <h5 class="mt-2">Apartamento T2 em Gaia</h5>
+      <button class="btn btn-custom">Agendar Visita</button>
+    </div>
+    <div class="col-md-4">
+      <img src="https://source.unsplash.com/random/400x300?villa" class="img-fluid">
+      <h5 class="mt-2">Moradia moderna em Matosinhos</h5>
+      <button class="btn btn-custom">Agendar Visita</button>
+    </div>
+  </div>
+</section>
+
+<!-- Contactos -->
+<section id="contactos" class="container mb-5">
+  <h2 class="section-title">Contactos</h2>
+  <p class="text-center">📞 +351 918 237 580 | 📧 geral@houserevive.pt</p>
+</section>
+
+<footer class="bg-light py-4 text-center">
+  © 2024 House Revive – Todos os direitos reservados.
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
