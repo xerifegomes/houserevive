@@ -4,20 +4,293 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>House Revive | Construção e Mediação Imobiliária no Porto</title>
+    <meta name="description" content="Especialistas em reabilitação, construção e mediação imobiliária no Porto. Oferecemos apoio completo no financiamento habitacional.">
+    <!-- Open Graph tags para melhor compartilhamento nas redes sociais -->
+    <meta property="og:title" content="House Revive | Construção e Mediação Imobiliária no Porto">
+    <meta property="og:description" content="Especialistas em reabilitação, construção e mediação imobiliária no Porto.">
+    <meta property="og:image" content="https://source.unsplash.com/random/1200x630?house-porto">
+    <meta property="og:url" content="https://houserevive.pt">
+    <!-- Favicon -->
+    <link rel="icon" href="https://via.placeholder.com/32x32" type="image/png">
+    <!-- Preload CSS crítico -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        body {font-family: 'Montserrat', sans-serif;}
-        .carousel-item img {height: 600px; object-fit: cover;}
-        .btn-custom {background-color: #004aad; color: white;}
-        .section-title {margin-top: 60px; margin-bottom: 30px; text-align: center;}
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+        }
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar-brand {
+            font-weight: 700;
+            color: #004aad;
+        }
+        .nav-link {
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-link:hover {
+            color: #004aad;
+        }
+        .carousel-item img {
+            height: 80vh;
+            object-fit: cover;
+            filter: brightness(0.8);
+        }
+        .carousel-caption {
+            bottom: 30%;
+        }
+        .carousel-caption h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        }
+        .btn-custom {
+            background-color: #004aad;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .btn-custom:hover {
+            background-color: #003580;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .section-title {
+            margin-top: 80px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: 700;
+            color: #004aad;
+            position: relative;
+        }
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: #004aad;
+            margin: 15px auto;
+        }
+        .service-card {
+            padding: 25px;
+            text-align: center;
+            border-radius: 10px;
+            transition: all 0.3s;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            height: 100%;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        .service-icon {
+            font-size: 2.5rem;
+            color: #004aad;
+            margin-bottom: 20px;
+        }
+        .property-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            transition: all 0.3s;
+        }
+        .property-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        .property-img-container {
+            overflow: hidden;
+            height: 240px;
+        }
+        .property-img {
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .property-card:hover .property-img {
+            transform: scale(1.1);
+        }
+        .property-info {
+            padding: 15px;
+        }
+        .property-price {
+            color: #004aad;
+            font-weight: 700;
+        }
+        .property-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #004aad;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .contact-info {
+            background-color: #f8f9fa;
+            padding: 40px 0;
+            border-radius: 10px;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #004aad;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-right: 15px;
+        }
+        .testimonial-card {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .testimonial-text {
+            font-style: italic;
+        }
+        .testimonial-author {
+            font-weight: 600;
+            margin-top: 15px;
+        }
+        footer {
+            background-color: #004aad;
+            color: white;
+            padding: 40px 0 20px;
+        }
+        .footer-links {
+            list-style: none;
+            padding-left: 0;
+        }
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover {
+            color: white;
+            text-decoration: none;
+        }
+        .social-icons {
+            font-size: 1.5rem;
+        }
+        .social-icons a {
+            color: white;
+            margin-right: 15px;
+            transition: opacity 0.3s;
+        }
+        .social-icons a:hover {
+            opacity: 0.8;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #004aad;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99;
+            opacity: 0;
+            transition: all 0.3s;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        .back-to-top.show {
+            opacity: 1;
+        }
+        /* Adicionando animações AOS-like */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-up.appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Melhorando acessibilidade com foco visível */
+        a:focus, button:focus, input:focus, select:focus, textarea:focus {
+            outline: 2px solid #004aad;
+            outline-offset: 2px;
+        }
+        /* Loader para o site */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        .preloader.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(0, 74, 173, 0.1);
+            border-radius: 50%;
+            border-left-color: #004aad;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
 
+<!-- Preloader -->
+<div class="preloader">
+    <div class="spinner"></div>
+</div>
+
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
-    <a class="navbar-brand" href="#">House Revive</a>
+    <a class="navbar-brand" href="#">
+      <i class="fas fa-home me-2"></i>House Revive
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -26,6 +299,7 @@
         <li class="nav-item"><a class="nav-link" href="#sobre">Sobre Nós</a></li>
         <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
         <li class="nav-item"><a class="nav-link" href="#imoveis">Imóveis</a></li>
+        <li class="nav-item"><a class="nav-link" href="#testemunhos">Testemunhos</a></li>
         <li class="nav-item"><a class="nav-link" href="#contactos">Contactos</a></li>
       </ul>
     </div>
@@ -34,18 +308,35 @@
 
 <!-- Carousel -->
 <div id="carouselRevive" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselRevive" data-bs-slide-to="0" class="active" aria-current="true"></button>
+    <button type="button" data-bs-target="#carouselRevive" data-bs-slide-to="1"></button>
+    <button type="button" data-bs-target="#carouselRevive" data-bs-slide-to="2"></button>
+  </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
       <img src="https://source.unsplash.com/random/1400x600?house-renovation" class="d-block w-100">
-      <div class="carousel-caption"><h3>Reabilitação e Remodelação</h3></div>
+      <div class="carousel-caption">
+        <h3>Reabilitação e Remodelação</h3>
+        <p class="d-none d-md-block">Transformamos espaços antigos em sonhos modernos</p>
+        <a href="#servicos" class="btn btn-custom mt-3">Ver Serviços</a>
+      </div>
     </div>
     <div class="carousel-item">
       <img src="https://source.unsplash.com/random/1400x600?new-house" class="d-block w-100">
-      <div class="carousel-caption"><h3>Construção Nova e Sustentável</h3></div>
+      <div class="carousel-caption">
+        <h3>Construção Nova e Sustentável</h3>
+        <p class="d-none d-md-block">Projetos inovadores respeitando o ambiente</p>
+        <a href="#servicos" class="btn btn-custom mt-3">Ver Serviços</a>
+      </div>
     </div>
     <div class="carousel-item">
       <img src="https://source.unsplash.com/random/1400x600?porto-portugal" class="d-block w-100">
-      <div class="carousel-caption"><h3>Imóveis no Porto</h3></div>
+      <div class="carousel-caption">
+        <h3>Imóveis no Porto</h3>
+        <p class="d-none d-md-block">Encontre a casa dos seus sonhos na Invicta</p>
+        <a href="#imoveis" class="btn btn-custom mt-3">Ver Imóveis</a>
+      </div>
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselRevive" data-bs-slide="prev">
@@ -59,52 +350,582 @@
 <!-- Sobre Nós -->
 <section id="sobre" class="container">
   <h2 class="section-title">Sobre a House Revive</h2>
-  <p class="text-center">Especialistas em reabilitação, construção e mediação imobiliária no Porto. Oferecemos apoio completo no financiamento habitacional.</p>
+  <div class="row align-items-center">
+    <div class="col-lg-6">
+      <img src="https://source.unsplash.com/random/600x400?team-construction" class="img-fluid rounded shadow">
+    </div>
+    <div class="col-lg-6 mt-4 mt-lg-0">
+      <h3 class="mb-4">A Sua Parceira de Confiança em Habitação</h3>
+      <p>Com mais de 10 anos de experiência, a House Revive tornou-se numa referência em reabilitação, construção e mediação imobiliária no Grande Porto. A nossa equipa de profissionais qualificados assegura resultados de excelência em cada projeto.</p>
+      <p>Oferecemos um serviço completo e personalizado, desde a procura do imóvel ideal até ao apoio no financiamento habitacional, passando pela reabilitação ou construção do espaço dos seus sonhos.</p>
+      <div class="row mt-4">
+        <div class="col-6">
+          <div class="d-flex align-items-center mb-3">
+            <i class="fas fa-check-circle text-success me-2"></i>
+            <span>Licenciados pelo IMPIC</span>
+          </div>
+          <div class="d-flex align-items-center mb-3">
+            <i class="fas fa-check-circle text-success me-2"></i>
+            <span>Equipa especializada</span>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="d-flex align-items-center mb-3">
+            <i class="fas fa-check-circle text-success me-2"></i>
+            <span>Qualidade garantida</span>
+          </div>
+          <div class="d-flex align-items-center mb-3">
+            <i class="fas fa-check-circle text-success me-2"></i>
+            <span>Financiamento facilitado</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- Serviços -->
 <section id="servicos" class="container">
   <h2 class="section-title">Os Nossos Serviços</h2>
-  <div class="row text-center">
-    <div class="col-md-3"><h5>Reabilitação</h5></div>
-    <div class="col-md-3"><h5>Construção</h5></div>
-    <div class="col-md-3"><h5>Mediação</h5></div>
-    <div class="col-md-3"><h5>Crédito Habitação</h5></div>
+  <div class="row">
+    <div class="col-md-6 col-lg-3">
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-tools"></i>
+        </div>
+        <h5>Reabilitação</h5>
+        <p>Recuperamos imóveis antigos preservando o seu carácter histórico e adaptando-os às necessidades atuais.</p>
+        <a href="#" class="btn btn-sm btn-custom mt-3">Saber Mais</a>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-3">
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-hard-hat"></i>
+        </div>
+        <h5>Construção</h5>
+        <p>Realizamos projetos de construção nova, com foco na qualidade dos materiais e na eficiência energética.</p>
+        <a href="#" class="btn btn-sm btn-custom mt-3">Saber Mais</a>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-3">
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-key"></i>
+        </div>
+        <h5>Mediação</h5>
+        <p>Facilitamos o processo de compra, venda ou arrendamento, com um serviço de mediação personalizado.</p>
+        <a href="#" class="btn btn-sm btn-custom mt-3">Saber Mais</a>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-3">
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-hand-holding-usd"></i>
+        </div>
+        <h5>Crédito Habitação</h5>
+        <p>Consultoria especializada para obter o melhor financiamento, com condições vantajosas junto dos bancos.</p>
+        <a href="#" class="btn btn-sm btn-custom mt-3">Saber Mais</a>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- Imóveis Disponíveis -->
 <section id="imoveis" class="container">
-  <h2 class="section-title">Imóveis Disponíveis</h2>
+  <h2 class="section-title fade-up">Imóveis Disponíveis</h2>
   <div class="row">
     <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x300?house" class="img-fluid">
-      <h5 class="mt-2">Moradia T3 no Porto</h5>
-      <button class="btn btn-custom">Agendar Visita</button>
+      <div class="property-card fade-up">
+        <div class="property-img-container position-relative">
+          <img src="https://source.unsplash.com/random/400x300?house" class="img-fluid property-img">
+          <span class="property-badge">Novo</span>
+        </div>
+        <div class="property-info">
+          <h5>Moradia T3 no Porto</h5>
+          <p class="property-price">€320.000</p>
+          <p class="small"><i class="fas fa-ruler-combined me-2"></i>180m² | <i class="fas fa-bed ms-2 me-2"></i>3 | <i class="fas fa-bath ms-2 me-2"></i>2</p>
+          <button class="btn btn-custom w-100" data-bs-toggle="modal" data-bs-target="#propertyModal1">Agendar Visita</button>
+        </div>
+      </div>
     </div>
     <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x300?apartment" class="img-fluid">
-      <h5 class="mt-2">Apartamento T2 em Gaia</h5>
-      <button class="btn btn-custom">Agendar Visita</button>
+      <div class="property-card fade-up">
+        <div class="property-img-container position-relative">
+          <img src="https://source.unsplash.com/random/400x300?apartment" class="img-fluid property-img">
+          <span class="property-badge">Destaque</span>
+        </div>
+        <div class="property-info">
+          <h5>Apartamento T2 em Gaia</h5>
+          <p class="property-price">€195.000</p>
+          <p class="small"><i class="fas fa-ruler-combined me-2"></i>95m² | <i class="fas fa-bed ms-2 me-2"></i>2 | <i class="fas fa-bath ms-2 me-2"></i>1</p>
+          <button class="btn btn-custom w-100" data-bs-toggle="modal" data-bs-target="#propertyModal2">Agendar Visita</button>
+        </div>
+      </div>
     </div>
     <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x300?villa" class="img-fluid">
-      <h5 class="mt-2">Moradia moderna em Matosinhos</h5>
-      <button class="btn btn-custom">Agendar Visita</button>
+      <div class="property-card fade-up">
+        <div class="property-img-container position-relative">
+          <img src="https://source.unsplash.com/random/400x300?villa" class="img-fluid property-img">
+          <span class="property-badge">Promoção</span>
+        </div>
+        <div class="property-info">
+          <h5>Moradia moderna em Matosinhos</h5>
+          <p class="property-price">€450.000</p>
+          <p class="small"><i class="fas fa-ruler-combined me-2"></i>250m² | <i class="fas fa-bed ms-2 me-2"></i>4 | <i class="fas fa-bath ms-2 me-2"></i>3</p>
+          <button class="btn btn-custom w-100" data-bs-toggle="modal" data-bs-target="#propertyModal3">Agendar Visita</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center mt-4 fade-up">
+    <a href="#" class="btn btn-outline-primary">Ver Mais Imóveis</a>
+  </div>
+</section>
+
+<!-- Testemunhos -->
+<section id="testemunhos" class="container">
+  <h2 class="section-title">O Que Dizem Os Nossos Clientes</h2>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="testimonial-card">
+        <div class="testimonial-text">
+          "A House Revive transformou completamente a nossa casa antiga. Profissionalismo do início ao fim. Recomendo vivamente!"
+        </div>
+        <div class="testimonial-author">
+          Maria Silva, Porto
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="testimonial-card">
+        <div class="testimonial-text">
+          "Ajudaram-me a encontrar o apartamento perfeito e ainda facilitaram todo o processo de financiamento. Serviço 5 estrelas!"
+        </div>
+        <div class="testimonial-author">
+          João Ferreira, Gaia
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="testimonial-card">
+        <div class="testimonial-text"></div>
+          "Construíram a casa dos nossos sonhos dentro do prazo e orçamento. A equipa é extremamente profissional e atenciosa."
+        </div>
+        <div class="testimonial-author">
+          Ana e Pedro Martins, Matosinhos
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- Contactos -->
 <section id="contactos" class="container mb-5">
-  <h2 class="section-title">Contactos</h2>
-  <p class="text-center">📞 +351 918 237 580 | 📧 geral@houserevive.pt</p>
+  <h2 class="section-title">Fale Connosco</h2>
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="contact-info p-4">
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-phone"></i>
+          </div>
+          <div>
+            <h5>Telefone</h5>
+            <p>+351 918 237 580</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div>
+            <h5>Email</h5>
+            <p>geral@houserevive.pt</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <div>
+            <h5>Morada</h5>
+            <p>Rua da Boavista, 123<br>4050-107 Porto</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div>
+            <h5>Horário</h5>
+            <p>Segunda a Sexta: 9h-18h<br>Sábado: 10h-13h</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 mt-4 mt-lg-0">
+      <form class="bg-light p-4 rounded">
+        <div class="mb-3"></div>
+          <label for="nome" class="form-label">Nome</label>
+          <input type="text" class="form-control" id="nome" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" required>
+        </div>
+        <div class="mb-3">
+          <label for="telefone" class="form-label">Telefone</label>
+          <input type="tel" class="form-control" id="telefone">
+        </div>
+        <div class="mb-3">
+          <label for="assunto" class="form-label">Assunto</label>
+          <select class="form-select" id="assunto">
+            <option value="reabilitacao">Reabilitação</option>
+            <option value="construcao">Construção</option>
+            <option value="mediacao">Mediação Imobiliária</option>
+            <option value="credito">Crédito Habitação</option>
+            <option value="outro">Outro</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="mensagem" class="form-label">Mensagem</label>
+          <textarea class="form-control" id="mensagem" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-custom w-100">Enviar Mensagem</button>
+      </form>
+    </div>
+  </div>
 </section>
 
-<footer class="bg-light py-4 text-center">
-  © 2024 House Revive – Todos os direitos reservados.
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 mb-4 mb-md-0">
+        <h5 class="mb-4">House Revive</h5>
+        <p>A sua parceira de confiança em reabilitação, construção e mediação imobiliária no Porto. Construímos sonhos.</p>
+        <div class="social-icons mt-4">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4 mb-md-0">
+        <h5 class="mb-4">Links Rápidos</h5>
+        <ul class="footer-links">
+          <li><a href="#sobre">Sobre Nós</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#imoveis">Imóveis</a></li>
+          <li><a href="#testemunhos">Testemunhos</a></li>
+          <li><a href="#contactos">Contactos</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h5 class="mb-4">Newsletter</h5>
+        <p>Subscreva a nossa newsletter para receber as últimas novidades e promoções.</p>
+        <form class="mt-3">
+          <div class="input-group">
+            <input type="email" class="form-control" placeholder="Seu email" required>
+            <button class="btn btn-light" type="submit">Subscrever</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="text-center pt-4 mt-4 border-top border-light">
+      <p>© 2024 House Revive – Todos os direitos reservados.</p>
+    </div>
+  </div>
 </footer>
 
+<!-- Back to Top Button -->
+<a href="#" class="back-to-top" id="backToTop">
+  <i class="fas fa-arrow-up"></i>
+</a>
+
+<!-- Modal para Agendar Visita - Imóvel 1 -->
+<div class="modal fade" id="propertyModal1" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Agendar Visita - Moradia T3 no Porto</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+      <div class="modal-body">
+        <form id="visitForm1">
+          <div class="mb-3">
+            <label for="visitName1" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="visitName1" required>
+          </div>
+          <div class="mb-3">
+            <label for="visitEmail1" class="form-label">Email</label>
+            <input type="email" class="form-control" id="visitEmail1" required>
+          </div>
+          <div class="mb-3">
+            <label for="visitPhone1" class="form-label">Telefone</label>
+            <input type="tel" class="form-control" id="visitPhone1" required>
+          </div>
+          <div class="mb-3">
+            <label for="visitDate1" class="form-label">Data Pretendida</label>
+            <input type="date" class="form-control" id="visitDate1" required>
+          </div>
+          <div class="mb-3">
+            <label for="visitTime1" class="form-label">Hora Pretendida</label>
+            <select class="form-select" id="visitTime1" required>
+              <option value="">Selecione um horário</option>
+              <option value="10:00">10:00</option>
+              <option value="11:00">11:00</option>
+              <option value="12:00">12:00</option>
+              <option value="14:00">14:00</option>
+              <option value="15:00">15:00</option>
+              <option value="16:00">16:00</option>
+              <option value="17:00">17:00</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="visitNotes1" class="form-label">Notas Adicionais</label>
+            <textarea class="form-control" id="visitNotes1" rows="3"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="submit" form="visitForm1" class="btn btn-custom">Confirmar Agendamento</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para Agendar Visita - Imóvel 2 -->
+<div class="modal fade" id="propertyModal2" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Agendar Visita - Apartamento T2 em Gaia</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Formulário semelhante ao do Modal 1 -->
+        <form id="visitForm2">
+          <div class="mb-3">
+            <label for="visitName2" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="visitName2" required>
+          </div>
+          <div class="mb-3">
+            <label for="visitEmail2" class="form-label">Email</label>
+            <input type="email" class="form-control" id="visitEmail2" required>
+          </div>
+          <div class="mb-3">
+            <label for="visitPhone2" class="form-label">Telefone</label>
+            <input type="tel" class="form-control" id="visitPhone2" required>
+          </div>
+          <div class="mb-3">
+            <label for="visitDate2" class="form-label">Data Pretendida</label>
+            <input type="date" class="form-control" id="visitDate2" required>
+          </div>
+          <div class="mb-3">
+            <label for="visitTime2" class="form-label">Hora Pretendida</label>
+            <select class="form-select" id="visitTime2" required>
+              <option value="">Selecione um horário</option>
+              <option value="10:00">10:00</option>
+              <option value="11:00">11:00</option>
+              <option value="12:00">12:00</option>
+              <option value="14:00">14:00</option>
+              <option value="15:00">15:00</option>
+              <option value="16:00">16:00</option>
+              <option value="17:00">17:00</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="visitNotes2" class="form-label">Notas Adicionais</label>
+            <textarea class="form-control" id="visitNotes2" rows="3"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="submit" form="visitForm2" class="btn btn-custom">Confirmar Agendamento</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para Agendar Visita - Imóvel 3 -->
+<div class="modal fade" id="propertyModal3" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Agendar Visita - Moradia moderna em Matosinhos</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Formulário semelhante ao do Modal 1 -->
+        <form id="visitForm3">
+          <div class="mb-3">
+            <label for="visitName3" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="visitName3" required>
+          </div>
+          <div class="mb-3">
+            <label for="visitEmail3" class="form-label">Email</label>
+            <input type="email" class="form-control" id="visitEmail3" required>
+          </div>
+          <div class="mb-3">
+            <label for="visitPhone3" class="form-label">Telefone</label>
+            <input type="tel" class="form-control" id="visitPhone3" required>
+          </div>
+          <div class="mb-3">
+            <label for="visitDate3" class="form-label">Data Pretendida</label>
+            <input type="date" class="form-control" id="visitDate3" required>
+          </div>
+          <div class="mb-3">
+            <label for="visitTime3" class="form-label">Hora Pretendida</label>
+            <select class="form-select" id="visitTime3" required>
+              <option value="">Selecione um horário</option>
+              <option value="10:00">10:00</option>
+              <option value="11:00">11:00</option>
+              <option value="12:00">12:00</option>
+              <option value="14:00">14:00</option>
+              <option value="15:00">15:00</option>
+              <option value="16:00">16:00</option>
+              <option value="17:00">17:00</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="visitNotes3" class="form-label">Notas Adicionais</label>
+            <textarea class="form-control" id="visitNotes3" rows="3"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="submit" form="visitForm3" class="btn btn-custom">Confirmar Agendamento</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Preloader
+  window.addEventListener('load', function() {
+    const preloader = document.querySelector('.preloader');
+    preloader.classList.add('fade-out');
+    setTimeout(() => {
+      preloader.style.display = 'none';
+    }, 500);
+  });
+
+  // Back to top button
+  window.addEventListener('scroll', function() {
+    var backToTopButton = document.getElementById('backToTop');
+    if (window.pageYOffset > 300) {
+      backToTopButton.classList.add('show');
+    } else {
+      backToTopButton.classList.remove('show');
+    }
+    
+    // Efeito de fade-up para elementos
+    const fadeElements = document.querySelectorAll('.fade-up');
+    fadeElements.forEach(element => {
+      const elementTop = element.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+      if (elementTop < windowHeight - 100) {
+        element.classList.add('appear');
+      }
+    });
+  });
+
+  document.getElementById('backToTop').addEventListener('click', function(e) {
+    e.preventDefault();
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  });
+
+  // Smooth scrolling for navigation links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop - 70,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+  
+  // Handling form submissions with feedback
+  document.querySelectorAll('form').forEach(form => {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const formId = this.id;
+      
+      // Simulação de envio (aqui você adicionaria o código real de envio)
+      const submitButton = this.querySelector('button[type="submit"]');
+      const originalText = submitButton.innerHTML;
+      
+      submitButton.disabled = true;
+      submitButton.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> A processar...';
+      
+      // Simulação de resposta do servidor após 2 segundos
+      setTimeout(() => {
+        // Fechar o modal se estiver em um
+        const modalElement = this.closest('.modal');
+        if (modalElement) {
+          const modal = bootstrap.Modal.getInstance(modalElement);
+          if (modal) modal.hide();
+        }
+        
+        // Criar um toast de sucesso
+        const toastContainer = document.createElement('div');
+        toastContainer.className = 'position-fixed bottom-0 end-0 p-3';
+        toastContainer.style.zIndex = '5';
+        
+        toastContainer.innerHTML = `
+          <div class="toast align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+              <div class="toast-body">
+                <i class="fas fa-check-circle me-2"></i> Formulário enviado com sucesso! Entraremos em contacto em breve.
+              </div>
+              <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Fechar"></button>
+            </div>
+          </div>
+        `;
+        
+        document.body.appendChild(toastContainer);
+        const toastElement = toastContainer.querySelector('.toast');
+        const toast = new bootstrap.Toast(toastElement, {delay: 5000});
+        toast.show();
+        
+        // Restaurar o botão e limpar o formulário
+        submitButton.disabled = false;
+        submitButton.innerHTML = originalText;
+        this.reset();
+        
+        // Remover o toast container após desaparecer
+        toastElement.addEventListener('hidden.bs.toast', function () {
+          toastContainer.remove();
+        });
+      }, 2000);
+    });
+  });
+  
+  // Iniciar elementos fade-up
+  document.addEventListener('DOMContentLoaded', function() {
+    // Verificar elementos visíveis na carga inicial
+    const fadeElements = document.querySelectorAll('.fade-up');
+    fadeElements.forEach(element => {
+      const elementTop = element.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+      if (elementTop < windowHeight - 100) {
+        element.classList.add('appear');
+      }
+    });
+  });
+</script>
 </body>
 </html>

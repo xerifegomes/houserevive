@@ -1,0 +1,13 @@
+name = "houserevive"
+type = "webpack"
+account_id = "" # Substitua pelo seu account_id do Cloudflare
+workers_dev = true
+route = ""
+zone_id = "" # Substitua pelo seu zone_id quando tiver o domínio configurado
+
+[site]
+bucket = "build" # Pasta onde seu site buildado está, ajuste se necessário
+entry-point = "workers-site"
+
+[build]
+command = "npm run build" # Comando para construir seu site, ajuste conforme necessário
